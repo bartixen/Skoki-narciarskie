@@ -33,7 +33,6 @@
 
         $connection = @new mysqli($host, $db_user, $db_password, $db_name);
         $connection->query("UPDATE `zawodnicy` SET `nazwisko` = '$nazwisko', `imie` = '$imie', `narodowosc` = '$narodowosc', `ilosc_wystapien` = '$ilosc_wystapien', `wynik` = '$wynik', `wiek` = '$wiek', `wzrost` = '$wzrost', `nazwisko_trenera` = '$nazwisko_trenera', `uwagi` = '$uwagi' WHERE `zawodnicy`.`id` = '$id'");
-        $connection->close();
         
         $_SESSION['info'] = 'Zapisano pomyślnie!';
 
@@ -56,4 +55,5 @@
         }
 		exit();
     }
+    $connection->close();
 ?>
