@@ -7,7 +7,8 @@
 ?> 
 <?php
     if (isset($_POST['nazwisko'])) {
-        
+
+        $id_authorization = $_SESSION['id_authorization'];
         $nazwisko = $_POST['nazwisko'];
         $imie = $_POST['imie'];
         $narodowosc = $_POST['narodowosc'];
@@ -28,6 +29,8 @@
             } else { 
                 if ($connection->query("INSERT INTO zawodnicy (id, nazwisko, imie, narodowosc, ilosc_wystapien, wynik, wiek, wzrost, nazwisko_trenera, uwagi) VALUES (NULL, '$nazwisko', '$imie', '$narodowosc', '$ilosc', '$wynik', '$wiek', '$wzrost', '$trener', '$uwagi')")) {
                     $_SESSION['info'] = 'Dodano poprawnie!';
+                    $date = ''. date("Y-m-d") .' '. date("H:i:sa") .'';
+                    $connection->query("INSERT INTO status (id, id_authorization, user, date, ip, info) VALUES (NULL, '" . $_SESSION['id_authorization'] . "', '" . $_SESSION['name'] . "', '$date', '" . $_SESSION['ip'] . "', 'Użytkownik dodał nowego zawodnika');");
                     header('Location: index.php');
                 }
                 else {

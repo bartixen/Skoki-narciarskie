@@ -22,9 +22,10 @@
         <a href="search/"><div class="item"><img src="../assets/search.png"><br>Szukaj</div></a>
         <a href="add/"><div class="item"><img src="../assets/add.png"><br>Dodaj</div></a>
         <a href="manage/"><div class="item"><img src="../assets/manage.png"><br>Zarządzaj</div></a>
+        <a href="status/"><div class="item"><img src="../assets/status.png"><br>Status</div></a>
     </section>
     <footer>
-        <p>© Bartosz Krasoń</p>
+        <p>© Bartixen</p>
     </footer>
     <script src="../assets/script.js"></script>
 </body>

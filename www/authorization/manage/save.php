@@ -38,6 +38,8 @@
         $_SESSION['info'] = 'Zapisano pomyślnie!';
 
         if ($_SESSION['from']=='search') {
+            $date = ''. date("Y-m-d") .' '. date("H:i:sa") .'';
+			$connection->query("INSERT INTO status (id, id_authorization, user, date, ip, info) VALUES (NULL, '" . $_SESSION['id_authorization'] . "', '" . $_SESSION['name'] . "', '$date', '" . $_SESSION['ip'] . "', 'Użytkownik edytował zawodnika');");
             header('Location: ../search/index.php');
             session_unset('from');
         } else {
@@ -45,6 +47,8 @@
         }
 	} else {
         if ($_SESSION['from']=='search') {
+            $date = ''. date("Y-m-d") .' '. date("H:i:sa") .'';
+			$connection->query("INSERT INTO status (id, id_authorization, user, date, ip, info) VALUES (NULL, '" . $_SESSION['id_authorization'] . "', '" . $_SESSION['name'] . "', '$date', '" . $_SESSION['ip'] . "', 'Użytkownik edytował zawodnika');");
             header('Location: ../search/index.php');
             session_unset('from');
         } else {

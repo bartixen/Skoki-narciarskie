@@ -242,6 +242,7 @@ input::placeholder {
   font-weight: bold;
   margin: 25px;
   color: white;
+  float: left;
 }
 
 a:link {

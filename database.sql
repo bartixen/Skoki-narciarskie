@@ -1,162 +1,84 @@
--- phpMyAdmin SQL Dump
--- version 5.1.3
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Czas generowania: 22 Lis 2022, 20:20
--- Wersja serwera: 10.3.34-MariaDB-0ubuntu0.20.04.1
--- Wersja PHP: 8.1.11
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Baza danych: `www10735_database`
---
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `authentication`
---
-
 CREATE TABLE `authentication` (
   `user` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
   `password` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Zrzut danych tabeli `authentication`
---
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `authentication` (`user`, `password`) VALUES
-('admin', '$2y$10$yK5Tyc.9JQGC.X8oSJZbZuDxH439TQeJWGgGlPB0SwrcFEkUjLIqy');
+('admin', '');
 
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `last_logins`
---
-
-CREATE TABLE `last_logins` (
+CREATE TABLE `status` (
   `id` int(100) NOT NULL,
+  `id_authorization` varchar(25) NOT NULL,
   `user` varchar(150) NOT NULL,
   `date` varchar(50) NOT NULL,
-  `ip` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `ip` varchar(50) NOT NULL,
+  `info` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Zrzut danych tabeli `last_logins`
---
-
-INSERT INTO `last_logins` (`id`, `user`, `date`, `ip`) VALUES
-(1, 'admin', '2022-11-20 20:56:33pm', '83.27.23*****'),
-(2, 'admin', '2022-11-20 20:57:25pm', '2a00:f41:4829:5712:b2e9:b418:3108*****'),
-(3, 'admin', '2022-11-20 21:27:31pm', '83.27.23*****'),
-(4, 'admin', '2022-11-20 22:29:45pm', '83.27.23*****'),
-(5, 'admin', '2022-11-20 22:32:09pm', '83.27.23*****'),
-(6, 'admin', '2022-11-20 22:37:20pm', '83.27.23*****'),
-(7, 'admin', '2022-11-20 23:13:43pm', '83.27.23*****'),
-(8, 'admin', '2022-11-20 23:22:35pm', '83.27.23*****'),
-(9, 'admin@', '2022-11-20 23:49:20pm', '83.27.23*****'),
-(10, 'admin@', '2022-11-21 14:22:25pm', '83.17.17*****'),
-(11, 'admin@', '2022-11-22 18:34:11pm', '83.27.23*****'),
-(12, 'admin@', '2022-11-22 18:37:12pm', '83.27.23*****'),
-(13, 'admin@', '2022-11-22 18:55:36pm', '83.27.23*****'),
-(14, 'admin@', '2022-11-22 19:31:05pm', '83.27.23*****'),
-(15, 'admin@', '2022-11-22 19:48:12pm', '83.27.23*****'),
-(16, 'admin@', '2022-11-22 19:55:13pm', '83.27.23*****'),
-(17, 'admin@', '2022-11-22 20:43:15pm', '83.27.23*****'),
-(18, 'admin@', '2022-11-22 20:45:51pm', '83.27.23*****'),
-(19, 'admin@', '2022-11-22 20:52:55pm', '83.27.23*****'),
-(20, 'admin@', '2022-11-22 20:53:34pm', '83.27.23*****'),
-(21, 'admin@', '2022-11-22 20:53:56pm', '83.27.23*****'),
-(22, 'admin@', '2022-11-22 20:57:41pm', '83.27.23*****'),
-(23, 'admin@', '2022-11-22 20:58:14pm', '83.27.23*****');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `zawodnicy`
---
+INSERT INTO `status` (`id`, `id_authorization`, `user`, `date`, `ip`, `info`) VALUES
+(1, 'l&^9qy', 'admin', '2022-11-24 20:11:25pm', '**********', 'Użytkownik wyczyścił logi'),
+(2, 'l&^9qy', 'admin', '2022-11-24 20:14:54pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
+(3, 'yb!bh6', 'admin', '2022-11-24 20:14:59pm', '**********', 'Pomyślna autoryzacja użytkownika'),
+(4, 'yb!bh6', 'admin', '2022-11-24 20:15:01pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
+(5, 'tnQHx^', 'admin', '2022-11-24 20:15:03pm', '**********', 'Pomyślna autoryzacja użytkownika'),
+(6, 'tnQHx^', 'admin', '2022-11-24 20:15:04pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
+(7, 'L871gZ', 'admin', '2022-11-24 20:15:09pm', '**********', 'Pomyślna autoryzacja użytkownika'),
+(8, 'L871gZ', 'admin', '2022-11-24 20:15:10pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
+(9, 'FnW!UP', 'admin', '2022-11-24 20:15:12pm', '**********', 'Pomyślna autoryzacja użytkownika'),
+(10, 'FnW!UP', 'admin', '2022-11-24 20:15:14pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
+(11, '^L@H^6', 'admin', '2022-11-24 20:15:15pm', '**********', 'Pomyślna autoryzacja użytkownika'),
+(12, '^L@H^6', 'admin', '2022-11-24 20:15:16pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
+(13, 'gkEnd1', 'admin', '2022-11-24 20:15:18pm', '**********', 'Pomyślna autoryzacja użytkownika'),
+(14, 'gkEnd1', 'admin', '2022-11-24 20:15:19pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
+(15, '^HguAK', 'admin', '2022-11-24 20:15:21pm', '**********', 'Pomyślna autoryzacja użytkownika'),
+(16, '^HguAK', 'admin', '2022-11-24 20:15:22pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
+(17, 'Iz1fT&', 'admin', '2022-11-24 20:15:24pm', '**********', 'Pomyślna autoryzacja użytkownika'),
+(18, 'Iz1fT&', 'admin', '2022-11-24 20:15:46pm', '**********', 'Użytkownik dodał nowego zawodnika'),
+(19, 'Iz1fT&', 'admin', '2022-11-24 20:15:53pm', '**********', 'Użytkownik usunął zawodnika');
 
 CREATE TABLE `zawodnicy` (
   `id` int(100) NOT NULL,
-  `nazwisko` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `imie` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `narodowosc` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `ilosc_wystapien` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `nazwisko` varchar(50) DEFAULT NULL,
+  `imie` varchar(50) DEFAULT NULL,
+  `narodowosc` varchar(50) DEFAULT NULL,
+  `ilosc_wystapien` varchar(100) DEFAULT NULL,
   `wynik` int(100) DEFAULT NULL,
-  `wiek` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `wzrost` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `nazwisko_trenera` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `uwagi` varchar(500) COLLATE utf8mb4_polish_ci DEFAULT NULL
+  `wiek` varchar(100) DEFAULT NULL,
+  `wzrost` varchar(100) DEFAULT NULL,
+  `nazwisko_trenera` varchar(50) DEFAULT NULL,
+  `uwagi` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
-
---
--- Zrzut danych tabeli `zawodnicy`
---
 
 INSERT INTO `zawodnicy` (`id`, `nazwisko`, `imie`, `narodowosc`, `ilosc_wystapien`, `wynik`, `wiek`, `wzrost`, `nazwisko_trenera`, `uwagi`) VALUES
 (1, 'JOJKO', 'Arkadiusz', 'Polska', '20', 145, '20', '168', 'Skrobot', 'Młody bardzo dobry skoczek'),
-(2, 'HARAT', 'Jakub', 'Polska', '23', 126, '21', '177', 'Klimczok', 'Brak'),
+(2, 'HARAT', 'Jakub', 'Polska', '23', 126, '22', '177', 'Klimczok', 'Brak'),
 (3, 'HULA', 'Stefan', 'Polska', '51', 236, '36', '174', 'Stowański', 'Jest żonaty i posiada dwójkę dzieci'),
 (4, 'KOT', 'Maciej', 'Polska', '43', 245, '21', '178', 'Makowski', 'Urodził się w Limanowie'),
-(5, 'HABDAS', 'Jan', 'Polska', '9', 135, '18', '175', 'Kowalski', 'Waży 54kg'),
+(5, 'HABDAS', 'Jan', 'Polska', '9', 135, '18', '175', 'Kowalski', 'Waży 180kg wzrostu'),
 (6, 'IWASA', 'Yuken', 'Japonia', '32', 189, '23', '178', 'Sapporo', 'Brak'),
 (7, 'SATO', 'Keiichi', 'Japonia', '27', 198, '26', '178', 'Oberstdorf', 'Debiut w zawodach FIS w 2014 roku'),
 (8, 'FORFANG', 'Johann Andre', 'Norwegia', '43', 246, '27', '191', 'Tromso', 'Jest kawalerem'),
 (9, 'MARKENG', 'Thomas Aasen', 'Norwegia', '32', 200, '22', '182', 'Lensbygda', 'Brak'),
-(10, 'FELDOREAN', 'Andrei', 'Rumunia', '21', 197, '26', '186', 'Brak', 'Brak'),
+(10, 'FELDOREAN', 'Andrei', 'Rumunia', '22', 197, '26', '186', 'Brak', 'Brak'),
 (11, 'TKACZENKO', 'Siergiej', 'Kachazstan', '29', 200, '23', '170', 'Brak', 'Trenuje w klubie Ski Club VKO'),
-(12, 'AMMANN', 'Simon', 'Szwajcaria', '41', 240, '41', '173', 'Schindellegi', 'Posiada syna i córkę');
+(12, 'AMMANN', 'Simon', 'Szwajcaria', '42', 240, '41', '173', 'Schindellegi', 'Posiada syna i córkę');
 
---
--- Indeksy dla zrzutów tabel
---
-
---
--- Indeksy dla tabeli `authentication`
---
 ALTER TABLE `authentication`
   ADD PRIMARY KEY (`user`);
 
---
--- Indeksy dla tabeli `last_logins`
---
-ALTER TABLE `last_logins`
+ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
 
---
--- Indeksy dla tabeli `zawodnicy`
---
 ALTER TABLE `zawodnicy`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT dla zrzuconych tabel
---
+ALTER TABLE `status`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
---
--- AUTO_INCREMENT dla tabeli `last_logins`
---
-ALTER TABLE `last_logins`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT dla tabeli `zawodnicy`
---
 ALTER TABLE `zawodnicy`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

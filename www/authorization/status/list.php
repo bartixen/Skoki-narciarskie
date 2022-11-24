@@ -1,4 +1,11 @@
 <?php
+	session_start();
+	if (!isset($_SESSION['authorization'])) {
+		header('Location: ../login/index.php');
+		exit();
+	}
+?> 
+<?php
     require_once "connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     try {
@@ -7,12 +14,17 @@
         if ($connection->connect_errno!=0) {
             throw new Exception(mysqli_connect_errno());
         } else { 
-            $sql = "SELECT * FROM zawodnicy ORDER BY `zawodnicy`.`wynik` DESC LIMIT 5";
+            if ($_SESSION['full']==true) {
+                $count = '';
+            } else {
+                $count = 'DESC LIMIT 10';
+            }
+            $sql = "SELECT * FROM status ORDER BY `status`.`id` " . $count . "";
             $result = $connection->query($sql);
             if ($result->num_rows > 0) {
-                echo "<table><tr><th>Nazwisko</th><th>Imię</th><th>Narodowość</th><th>Wynik</th></tr>";
+                echo '<table style="max-width: 1050px"><tr><th>ID</th><th>Użytkownik</th><th>Data</th><th>Adres IP</th><th>Opis</th></tr>';
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><th>" . $row["nazwisko"]. "</th><th>" . $row["imie"]. "</th><th>" . $row["narodowosc"]. "</th><th>" . $row["wynik"]. "</th></tr>";
+                    echo "<tr><th>" . $row["id_authorization"]. "</th><th>" . $row["user"]. "</th><th>" . $row["date"]. "</th><th>" . $row["ip"]. "</th><th>" . $row["info"]. "</th></tr>";
                 }
                 echo "</table>";
             } else {
