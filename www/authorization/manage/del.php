@@ -7,7 +7,7 @@
 ?> 
 <?php
     if (isset($_GET['id'])) {
-        require_once "connect.php";
+        require_once "../../connect.php";
         $id = $_GET['id'];
         $id_authorization = $_SESSION['id_authorization'];
         $connection = @new mysqli($host, $db_user, $db_password, $db_name);

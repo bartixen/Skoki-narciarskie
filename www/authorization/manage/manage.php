@@ -6,7 +6,7 @@
 	}
 ?> 
 <?php
-    require_once "connect.php";
+    require_once "../../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     $id = $_GET['id'];
     if ($id!=0) {
@@ -50,7 +50,7 @@
 </head>
 <body>
     <header>
-        <a href="<?php if ($_SESSION['from']=="search") { echo '../search/index.php'; session_unset('from'); } else { echo 'index.php'; session_unset('from'); } ?>"><button>Powrót</button></a>
+        <a href="<?php if ($_SESSION['from']=="search") { echo '../search/index.php'; } else { echo 'index.php'; } ?>"><button>Powrót</button></a>
         <h1>EDYTUJ ZAWODNIKA</h1>
     </header>
     <section id="authorization">

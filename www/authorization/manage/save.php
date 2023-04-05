@@ -7,7 +7,7 @@
 ?> 
 <?php
     if (isset($_SESSION['id'])) {
-        require_once "connect.php";
+        require_once "../../connect.php";
 
         $id = $_SESSION['id'];
         $nazwisko = $_POST['nazwisko'];

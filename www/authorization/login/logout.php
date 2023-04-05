@@ -7,7 +7,7 @@
 ?> 
 <?php
     $id_authorization = $_SESSION['authorization'];
-    require_once "connect.php";
+    require_once "../../connect.php";
 		$connection = @new mysqli($host, $db_user, $db_password, $db_name);
 		$connection->query("SET NAMES 'utf8'");
 		if ($connection->connect_errno!=0) {

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once "connect.php";
+    require_once "../../connect.php";
     mysqli_report(MYSQLI_REPORT_STRICT);
     try {
         $connection = new mysqli($host, $db_user, $db_password, $db_name);

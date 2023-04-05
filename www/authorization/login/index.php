@@ -31,7 +31,7 @@
             <input type="text" name="login" id="login" value="" />
             <p>Hasło:</p>
             <input type="password" name="password" id="password" value="" />
-            <button class="g-recaptcha" data-sitekey="6LdbaBYjAAAAAPxbzR8ciGEP7Q9a0qwL1PdmYvrQ" data-callback='onSubmit' data-action='submit'>Zaloguj</button>
+            <button data-callback='onSubmit' data-action='submit'>Zaloguj</button>
         </form></br>
         <?php
             if (isset($_SESSION['info'])) {
