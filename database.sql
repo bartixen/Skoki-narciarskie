@@ -1,14 +1,49 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Czas generowania: 05 Kwi 2023, 13:30
+-- Wersja serwera: 10.4.22-MariaDB
+-- Wersja PHP: 8.1.2
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Baza danych: `skoki`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `authentication`
+--
+
 CREATE TABLE `authentication` (
   `user` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci NOT NULL,
   `password` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `authentication`
+--
 
 INSERT INTO `authentication` (`user`, `password`) VALUES
-('admin', '');
+('admin', '$2y$10$yw5wxf.OxJyJI8b9jDX1neSteHSUCxjV5WV/cgkYxkwuFr5QqPInS');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `status`
+--
 
 CREATE TABLE `status` (
   `id` int(100) NOT NULL,
@@ -17,41 +52,40 @@ CREATE TABLE `status` (
   `date` varchar(50) NOT NULL,
   `ip` varchar(50) NOT NULL,
   `info` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Zrzut danych tabeli `status`
+--
 
 INSERT INTO `status` (`id`, `id_authorization`, `user`, `date`, `ip`, `info`) VALUES
-(1, 'l&^9qy', 'admin', '2022-11-24 20:11:25pm', '**********', 'Użytkownik wyczyścił logi'),
-(2, 'l&^9qy', 'admin', '2022-11-24 20:14:54pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
-(3, 'yb!bh6', 'admin', '2022-11-24 20:14:59pm', '**********', 'Pomyślna autoryzacja użytkownika'),
-(4, 'yb!bh6', 'admin', '2022-11-24 20:15:01pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
-(5, 'tnQHx^', 'admin', '2022-11-24 20:15:03pm', '**********', 'Pomyślna autoryzacja użytkownika'),
-(6, 'tnQHx^', 'admin', '2022-11-24 20:15:04pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
-(7, 'L871gZ', 'admin', '2022-11-24 20:15:09pm', '**********', 'Pomyślna autoryzacja użytkownika'),
-(8, 'L871gZ', 'admin', '2022-11-24 20:15:10pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
-(9, 'FnW!UP', 'admin', '2022-11-24 20:15:12pm', '**********', 'Pomyślna autoryzacja użytkownika'),
-(10, 'FnW!UP', 'admin', '2022-11-24 20:15:14pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
-(11, '^L@H^6', 'admin', '2022-11-24 20:15:15pm', '**********', 'Pomyślna autoryzacja użytkownika'),
-(12, '^L@H^6', 'admin', '2022-11-24 20:15:16pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
-(13, 'gkEnd1', 'admin', '2022-11-24 20:15:18pm', '**********', 'Pomyślna autoryzacja użytkownika'),
-(14, 'gkEnd1', 'admin', '2022-11-24 20:15:19pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
-(15, '^HguAK', 'admin', '2022-11-24 20:15:21pm', '**********', 'Pomyślna autoryzacja użytkownika'),
-(16, '^HguAK', 'admin', '2022-11-24 20:15:22pm', '**********', 'Cofniecie autoryzacji dla użytkownika'),
-(17, 'Iz1fT&', 'admin', '2022-11-24 20:15:24pm', '**********', 'Pomyślna autoryzacja użytkownika'),
-(18, 'Iz1fT&', 'admin', '2022-11-24 20:15:46pm', '**********', 'Użytkownik dodał nowego zawodnika'),
-(19, 'Iz1fT&', 'admin', '2022-11-24 20:15:53pm', '**********', 'Użytkownik usunął zawodnika');
+(1, 'U8KmoX', 'admin', '2023-04-05 13:05:31pm', '*****', 'Użytkownik wyczyścił logi'),
+(2, 'U8KmoX', 'admin', '2023-04-05 13:17:42pm', '*****', 'Użytkownik usunął zawodnika'),
+(3, 'U8KmoX', 'admin', '2023-04-05 13:29:15pm', '*****', 'Cofniecie autoryzacji dla użytkownika'),
+(4, 'fmbvEH', '', '2023-04-05 13:29:16pm', '*****', 'Niepoprawne dane przy autoryzacji');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `zawodnicy`
+--
 
 CREATE TABLE `zawodnicy` (
   `id` int(100) NOT NULL,
-  `nazwisko` varchar(50) DEFAULT NULL,
-  `imie` varchar(50) DEFAULT NULL,
-  `narodowosc` varchar(50) DEFAULT NULL,
-  `ilosc_wystapien` varchar(100) DEFAULT NULL,
+  `nazwisko` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `imie` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `narodowosc` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `ilosc_wystapien` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,
   `wynik` int(100) DEFAULT NULL,
-  `wiek` varchar(100) DEFAULT NULL,
-  `wzrost` varchar(100) DEFAULT NULL,
-  `nazwisko_trenera` varchar(50) DEFAULT NULL,
-  `uwagi` varchar(500) DEFAULT NULL
+  `wiek` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `wzrost` varchar(100) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `nazwisko_trenera` varchar(50) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `uwagi` varchar(500) COLLATE utf8mb4_polish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Zrzut danych tabeli `zawodnicy`
+--
 
 INSERT INTO `zawodnicy` (`id`, `nazwisko`, `imie`, `narodowosc`, `ilosc_wystapien`, `wynik`, `wiek`, `wzrost`, `nazwisko_trenera`, `uwagi`) VALUES
 (1, 'JOJKO', 'Arkadiusz', 'Polska', '20', 145, '20', '168', 'Skrobot', 'Młody bardzo dobry skoczek'),
@@ -67,18 +101,45 @@ INSERT INTO `zawodnicy` (`id`, `nazwisko`, `imie`, `narodowosc`, `ilosc_wystapie
 (11, 'TKACZENKO', 'Siergiej', 'Kachazstan', '29', 200, '23', '170', 'Brak', 'Trenuje w klubie Ski Club VKO'),
 (12, 'AMMANN', 'Simon', 'Szwajcaria', '42', 240, '41', '173', 'Schindellegi', 'Posiada syna i córkę');
 
+--
+-- Indeksy dla zrzutów tabel
+--
+
+--
+-- Indeksy dla tabeli `authentication`
+--
 ALTER TABLE `authentication`
   ADD PRIMARY KEY (`user`);
 
+--
+-- Indeksy dla tabeli `status`
+--
 ALTER TABLE `status`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indeksy dla tabeli `zawodnicy`
+--
 ALTER TABLE `zawodnicy`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `status`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT dla zrzuconych tabel
+--
 
+--
+-- AUTO_INCREMENT dla tabeli `status`
+--
+ALTER TABLE `status`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT dla tabeli `zawodnicy`
+--
 ALTER TABLE `zawodnicy`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
