@@ -31,6 +31,7 @@
             <input type="text" name="login" id="login" value="" />
             <p>Hasło:</p>
             <input type="password" name="password" id="password" value="" />
+            <!-- class="g-recaptcha" data-sitekey="" -->
             <button data-callback='onSubmit' data-action='submit'>Zaloguj</button>
         </form></br>
         <?php
